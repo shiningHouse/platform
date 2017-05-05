@@ -11,7 +11,7 @@ public class HomeController {
 	
 	@RequestMapping("/index")
 	public String home(HttpServletRequest request){
-		System.out.println("............index......");
+		System.out.println(".........index......");
 		return "index";
 	}
 
