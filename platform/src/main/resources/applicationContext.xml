@@ -31,7 +31,7 @@
     	<property name="dataSource" ref="dataSource"> </property>
     	
     	<!-- 配置Hibernate配置文件的位置及名称 -->
-    	<property name="configLocation" value="classpath:hiberate.cfg.xml"></property>
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
     	
     	<!-- 配置hibernate映射文件的位置及名称，可以使用通配符 -->
     	<property name="mappingLocations" value="classpath:com/cunity/platform/model/*.hbm.xml"></property>

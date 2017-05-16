@@ -20,6 +20,7 @@ public class SpringHibernateTest {
 	public void testDataSource() throws SQLException{
 		DataSource dataSource = ctx.getBean(DataSource.class);
 		dataSource.getConnection();
+		
 	}
 
 }
