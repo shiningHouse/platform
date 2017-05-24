@@ -155,7 +155,8 @@
         <version>2.3.1</version>
         <scope>provided</scope>
     </dependency>
-    <!-- jackson jar -->
+    
+    <!-- jackson jar for transfer Object to JSON-->
     <dependency>
         <groupId>org.codehaus.jackson</groupId>
         <artifactId>jackson-jaxrs</artifactId>
@@ -265,6 +266,15 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>5.1.31</version>
     </dependency>
+    
+    <!-- tools for view -->
+    <!-- poi -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.16</version>
+	</dependency>
+    
         
   </dependencies>
   
