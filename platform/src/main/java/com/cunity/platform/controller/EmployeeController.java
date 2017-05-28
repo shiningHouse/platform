@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cunity.platform.dao.DepartmentDao;
 import com.cunity.platform.dao.EmployeeDao;
@@ -23,6 +22,21 @@ public class EmployeeController {
 	@Autowired
 	private DepartmentDao departmentDao;
 	
+	@RequestMapping(value="/emp", method=RequestMethod.PUT)
+	public String update(Employee employee){
+		Employee beforeEmployee = employeeDao.get(employee.getId());
+		employee.setLastName(beforeEmployee.getLastName());
+		employeeDao.save(employee);
+		return "redirect:emps";
+	}
+	
+	@RequestMapping(value="/emp/{id}", method=RequestMethod.GET)
+	public String input(@PathVariable Integer id, Map<String,Object> map){
+		map.put("employee", employeeDao.get(id));
+		map.put("departments", departmentDao.getDepartments());
+		return "input";
+	}
+	
 	/**
 	 * 重点是JSP页面如何发起一个delete请求，实际只是post请求
 	 * @param id
@@ -35,13 +49,6 @@ public class EmployeeController {
 		return "redirect:/employee/emps";
 	}
 	
-	
-	@RequestMapping(value="/testRest/{id}", method=RequestMethod.DELETE)
-	@ResponseBody()
-	public String testRestDelete(@PathVariable Integer id){
-		System.out.println("testRest DELETE: " + id);
-		return "testRest DELETE SUCCESS";
-	}
 	
 	@RequestMapping(value="/emp", method=RequestMethod.POST)
 	public String save(Employee employee){

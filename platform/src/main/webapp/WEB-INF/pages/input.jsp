@@ -7,6 +7,7 @@
 		可以更快速地开发出表单页面，同时可以进行表单回显
 
  -->
+ <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,9 +17,17 @@
 </head>
 <body>
 
-	<form:form action="emp" method="POST" modelAttribute="employee">
+	<form:form action="${ctx}/employee/emp" method="POST" modelAttribute="employee">
 		<!-- path属性对应html表单中name属性值 -->
-		LastName: <form:input path="lastName"/>
+		<c:if test="${employee.id == null}">
+			LastName: <form:input path="lastName"/>
+		</c:if>
+		
+		<c:if test="${ employee.id != null}">
+			<form:hidden path="lastName"/>
+			<form:hidden path="id"/>
+			<input type="hidden" name="_method" value="PUT"/>
+		</c:if>
 		<br>
 		Email: <form:input path="email"/>
 		<br>
