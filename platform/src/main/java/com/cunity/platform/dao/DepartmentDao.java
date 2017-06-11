@@ -28,4 +28,6 @@ public class DepartmentDao {
 	public Department getDepartment(Integer id){
 		return departments.get(id);
 	}
+	
+	public void test(){}
 }

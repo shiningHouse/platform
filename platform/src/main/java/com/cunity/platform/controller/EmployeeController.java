@@ -56,7 +56,7 @@ public class EmployeeController {
 		employeeDao.save(employee);
 		return "redirect:emps";
 	}
-	
+	 
 	@RequestMapping(value="/emp", method=RequestMethod.GET)
 	public String input(Map<String, Object> map){
 		System.out.println("show input employee page");
